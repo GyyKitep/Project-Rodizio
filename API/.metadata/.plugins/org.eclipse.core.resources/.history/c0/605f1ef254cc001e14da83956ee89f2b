@@ -1,0 +1,30 @@
+package br.com.rodizio.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.rodizio.controller.form.CategoriesForm;
+import br.com.rodizio.dto.CategoriesDto;
+import br.com.rodizio.module.Categories;
+import br.com.rodizio.repository.CategoriesRepository;
+
+@RestController
+@RequestMapping("categorie")
+public class CategoriesController {
+	
+
+	@Autowired
+	private CategoriesRepository repository;
+
+	@PostMapping
+	public ResponseEntity<CategoriesDto> register(@RequestBody CategoriesForm form) {
+		Categories categorie = new Categories(form);
+		repository.save(categorie);
+		return ResponseEntity.ok(new CategoriesDto(categorie));
+	}	
+
+}

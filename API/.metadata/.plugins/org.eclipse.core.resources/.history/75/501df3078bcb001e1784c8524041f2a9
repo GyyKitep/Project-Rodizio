@@ -1,0 +1,13 @@
+package br.com.rodizio.dto;
+
+import java.sql.Timestamp;
+
+import br.com.rodizio.module.Categories;
+
+public record CategoriesDto(Integer id, String name, Timestamp updated_price, Timestamp created_at) {
+
+	public CategoriesDto(Categories categories) {
+		this(id = categories.getId())
+		
+	}
+}

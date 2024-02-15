@@ -1,0 +1,18 @@
+package br.com.rodizio.module;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+//@Entity
+//@Table(name = "establishment_categories")
+public class Establishment_Categories {
+	
+
+	
+	
+
+}
