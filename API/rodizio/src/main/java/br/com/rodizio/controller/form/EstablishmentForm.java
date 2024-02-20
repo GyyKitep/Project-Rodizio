@@ -2,7 +2,7 @@ package br.com.rodizio.controller.form;
 
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -36,7 +36,7 @@ public class EstablishmentForm {
 	@JsonFormat(pattern = "HH:mm:ss")
 	private Time opening_h_sun;
 
-	private List<Categories> listCategories;
+	private Set<Categories> categories;
 
 	public String getName() {
 		return name;
@@ -100,8 +100,8 @@ public class EstablishmentForm {
 		return opening_h_sun;
 	}
 
-	public List<Categories> getListCategories() {
-		return listCategories;
+	public Set<Categories> getCategories() {
+		return categories;
 	}
 
 }

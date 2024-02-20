@@ -2,6 +2,7 @@ package br.com.rodizio.module;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 import br.com.rodizio.controller.form.CategoriesForm;
 import jakarta.annotation.Nullable;
@@ -28,8 +29,8 @@ public class Categories {
 	@Nullable
 	private Timestamp updated_at;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "categories")
-	private List<Establishment> listEstablishment;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "categories")
+	private Set<Establishment> establishments;
 
 	public Categories() {
 	}

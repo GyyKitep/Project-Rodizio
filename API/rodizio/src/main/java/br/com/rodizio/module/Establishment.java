@@ -3,6 +3,7 @@ package br.com.rodizio.module;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 import br.com.rodizio.controller.form.EstablishmentForm;
 import jakarta.annotation.Nullable;
@@ -55,10 +56,10 @@ public class Establishment {
 	@Nullable
 	private Time opening_h_sun;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	@JoinTable(name = "establishment_categories", joinColumns = {
 			@JoinColumn(name = "establishment_id") }, inverseJoinColumns = { @JoinColumn(name = "category_id") })
-	private List<Categories> listCategories;
+	private Set<Categories> categories;
 
 	public Establishment() {
 
@@ -83,7 +84,7 @@ public class Establishment {
 		this.opening_h_fri = form.getOpening_h_fri();
 		this.opening_h_sat = form.getOpening_h_sat();
 		this.opening_h_sun = form.getOpening_h_sun();
-		this.listCategories = form.getListCategories();
+		this.categories = form.getCategories();
 	}
 
 	public void updateEstablishment(EstablishmentForm form) {
@@ -106,7 +107,7 @@ public class Establishment {
 		this.opening_h_fri = form.getOpening_h_fri();
 		this.opening_h_sat = form.getOpening_h_sat();
 		this.opening_h_sun = form.getOpening_h_sun();
-		this.listCategories = form.getListCategories();
+		this.categories = form.getCategories();
 	}
 
 	public Integer getId() {

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.rodizio.controller.form.EstablishmentForm;
 import br.com.rodizio.dto.EstablishmentDto;
 import br.com.rodizio.module.Establishment;
+import br.com.rodizio.repository.CategoriesRepository;
 import br.com.rodizio.repository.EstablishmentRepository;
 
 @RestController
@@ -26,9 +27,10 @@ public class EstablishmentController {
 
 	@Autowired
 	private EstablishmentRepository repository;
+	
 
 	@PostMapping
-	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {
+	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {		
 		Establishment establishment = new Establishment(form);
 		repository.save(establishment);
 		return ResponseEntity.ok(new EstablishmentDto(establishment));
