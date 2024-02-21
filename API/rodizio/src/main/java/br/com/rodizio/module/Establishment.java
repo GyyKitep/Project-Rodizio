@@ -2,10 +2,9 @@ package br.com.rodizio.module;
 
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Set;
 
-import br.com.rodizio.controller.form.EstablishmentForm;
+import br.com.rodizio.controller.form.EstablishmentCompletForm;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -61,11 +60,11 @@ public class Establishment {
 			@JoinColumn(name = "establishment_id") }, inverseJoinColumns = { @JoinColumn(name = "category_id") })
 	private Set<Categories> categories;
 
+	
 	public Establishment() {
-
 	}
 
-	public Establishment(EstablishmentForm form) {
+	public Establishment(EstablishmentCompletForm form) {
 		this.name = form.getName();
 		this.address = form.getAddress();
 		this.about = form.getAbout();
@@ -87,7 +86,7 @@ public class Establishment {
 		this.categories = form.getCategories();
 	}
 
-	public void updateEstablishment(EstablishmentForm form) {
+	public void updateEstablishment(EstablishmentCompletForm form) {
 		this.name = form.getName();
 		this.address = form.getAddress();
 		this.about = form.getAbout();
@@ -232,6 +231,10 @@ public class Establishment {
 
 	public void setOpening_h_sun(Time opening_h_sun) {
 		this.opening_h_sun = opening_h_sun;
+	}
+	
+	public Set<Categories> getCategories() {
+		return categories;
 	}
 
 }

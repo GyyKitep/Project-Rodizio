@@ -4409,3 +4409,480 @@ java.lang.IllegalArgumentException: Invalid identifier : >optional<categories>1<
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-19 21:03:10.750
 !MESSAGE Classpath changed for project: rodizio
+!SESSION 2024-02-20 19:52:53.696 -----------------------------------------------
+eclipse.buildId=4.30.0.20231201-1200
+java.version=21.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-02-20 19:52:59.165
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-02-20 19:52:59.576
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-02-20 19:53:07.744
+!MESSAGE Logback config file: C:\Users\geova\Documents\Projetos\Projetos_Pratica\project_rodizio\API\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.2.1.20231030-1438.xml
+
+!ENTRY org.eclipse.jface 2 0 2024-02-20 19:53:11.078
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-02-20 19:53:11.078
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-20 19:53:16.332
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Program Files\Java\jdk-21\bin\javaw.exe
+-cp
+C:\Users\geova\eclipse\jee-2022-12\eclipse\..\..\..\.p2\pool\plugins\org.springframework.tooling.boot.ls_1.47.0.202306150731\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\geova\eclipse\jee-2022-12\eclipse\..\..\..\.p2\pool\plugins\org.springframework.tooling.boot.ls_1.47.0.202306150731\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\geova\eclipse\jee-2022-12\eclipse\..\..\..\.p2\pool\plugins\org.springframework.tooling.boot.ls_1.47.0.202306150731\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=C:/Users/geova/Documents/Projetos/Projetos_Pratica/project_rodizio/API/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1708469596332
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:53:16.334
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-02-20 19:53:16.348
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 10424
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-02-20 19:53:16.376
+!MESSAGE org.springframework.ide.vscode.commons.protocol.spring.SpringModelLanguageServer cannot be found by org.springframework.tooling.boot.ls_1.47.0.202306150731
+!STACK 0
+java.lang.ClassNotFoundException: org.springframework.ide.vscode.commons.protocol.spring.SpringModelLanguageServer cannot be found by org.springframework.tooling.boot.ls_1.47.0.202306150731
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:541)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:536)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:622)
+	at org.eclipse.lsp4e.LanguageServersRegistry$ExtensionLanguageServerDefinition.getServerInterface(LanguageServersRegistry.java:203)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:318)
+	at java.base/java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java:787)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:53:19.352
+!MESSAGE Boot project ADDED: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:53:19.354
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:53:19.356
+!MESSAGE Started Boot LS process
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-02-20 19:53:19.378
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\geova'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:56:13.595
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:56:20.165
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:56:22.360
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:56:23.588
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:56:31.736
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 19:56:32.887
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:04:17.422
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:04:48.703
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:05:25.146
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:05:48.337
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:06:01.094
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:06:13.990
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:16:42.321
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:17:06.754
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:18:15.969
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:18:33.552
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:18:35.783
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:18:42.729
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:19:10.949
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:19:29.639
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 20:20:05.678
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:21:05.573
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:21:08.260
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:21:19.897
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:22:19.276
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:26:19.268
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:26:50.868
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 20:27:37.048
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:29:00.654
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:29:06.359
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 20:29:24.538
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 20:29:28.814
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:30:03.469
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:30:11.765
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:30:42.769
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:31:14.133
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 20:31:32.656
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:31:34.007
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:32:04.905
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:33:00.443
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.jdt.debug.ui 4 150 2024-02-20 20:34:00.544
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.debug.core.DebugException: Invalid stack frame
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getUnderlyingStackFrame(JDIStackFrame.java:1378)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getUnderlyingThisObject(JDIStackFrame.java:1013)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getVariables0(JDIStackFrame.java:369)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getVariables(JDIStackFrame.java:307)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.containsVariable(JavaDebugHover.java:620)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.lambda$2(JavaDebugHover.java:639)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.findFirstFrameForVariable(JavaDebugHover.java:604)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.getHoverInfo2(JavaDebugHover.java:469)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+Caused by: java.lang.IllegalStateException
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getUnderlyingStackFrame(JDIStackFrame.java:1381)
+	... 11 more
+!SUBENTRY 1 org.eclipse.jdt.debug 4 100 2024-02-20 20:34:00.548
+!MESSAGE Invalid stack frame
+!STACK 0
+java.lang.IllegalStateException
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getUnderlyingStackFrame(JDIStackFrame.java:1381)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getUnderlyingThisObject(JDIStackFrame.java:1013)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getVariables0(JDIStackFrame.java:369)
+	at org.eclipse.jdt.internal.debug.core.model.JDIStackFrame.getVariables(JDIStackFrame.java:307)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.containsVariable(JavaDebugHover.java:620)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.lambda$2(JavaDebugHover.java:639)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.findFirstFrameForVariable(JavaDebugHover.java:604)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugHover.getHoverInfo2(JavaDebugHover.java:469)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:40:40.359
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:40:50.622
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:47:58.445
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:48:03.219
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:51:55.231
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:54:12.482
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 20:54:53.119
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:54:56.567
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:55:23.133
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:55:40.593
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:55:49.405
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:55:55.175
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:56:11.885
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:56:18.367
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:56:21.854
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:56:30.983
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:58:18.968
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:58:33.131
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 20:58:49.968
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:05:13.664
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:05:28.513
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:08:23.607
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:09:43.141
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-02-20 21:09:47.637
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:10:03.871
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:10:06.646
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:10:08.783
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:10:51.001
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:10:53.134
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:13:02.704
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:13:20.050
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:13:23.554
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:20:05.986
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:20:17.310
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:20:39.911
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:22:46.111
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:22:49.400
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:22:52.058
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:23:00.829
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:23:16.770
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:23:37.524
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:23:57.484
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:24:01.004
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:24:07.398
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:24:12.538
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:24:33.099
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:24:35.265
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:24:37.887
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:27:42.153
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:28:10.485
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:28:14.617
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:28:40.078
+!MESSAGE Classpath changed for project: rodizio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:28:47.605
+!MESSAGE Classpath changed for project: rodizio

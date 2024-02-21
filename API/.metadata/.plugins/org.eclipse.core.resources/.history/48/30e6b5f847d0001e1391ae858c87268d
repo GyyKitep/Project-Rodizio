@@ -1,0 +1,11 @@
+package br.com.rodizio.controller.form;
+
+public class EstablishmentCategoriesForm {
+	private Integer id;
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	
+}

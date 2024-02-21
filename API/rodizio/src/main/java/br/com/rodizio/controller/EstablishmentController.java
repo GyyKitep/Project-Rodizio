@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.rodizio.controller.form.EstablishmentCompletForm;
 import br.com.rodizio.controller.form.EstablishmentForm;
 import br.com.rodizio.dto.EstablishmentDto;
 import br.com.rodizio.module.Establishment;
@@ -26,44 +27,53 @@ import br.com.rodizio.repository.EstablishmentRepository;
 public class EstablishmentController {
 
 	@Autowired
-	private EstablishmentRepository repository;
+	private EstablishmentRepository establishmentRepository;
 	
+	@Autowired
+	private CategoriesRepository categoriesRepository;	
 
 	@PostMapping
 	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {		
-		Establishment establishment = new Establishment(form);
-		repository.save(establishment);
+		EstablishmentCompletForm complete = new EstablishmentCompletForm(form, categoriesRepository);
+		
+		
+		Establishment establishment = new Establishment(complete);
+		establishmentRepository.save(establishment);
 		return ResponseEntity.ok(new EstablishmentDto(establishment));
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable Integer id, @RequestBody EstablishmentForm form) {
-		Optional<Establishment> establishment = repository.findById(id);
+		Optional<Establishment> establishment = establishmentRepository.findById(id);
 		
 		if (establishment.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi encontrado este estabelecimento");
 		}
 		
-		establishment.get().updateEstablishment(form);
-		repository.save(establishment.get());
+		EstablishmentCompletForm complete = new EstablishmentCompletForm(establishment.get());
+		
+		complete.changeCategories(form, categoriesRepository);
+		
+		establishment.get().updateEstablishment(complete);
+		establishmentRepository.save(establishment.get());
 
 		return ResponseEntity.ok(new EstablishmentDto(establishment.get()));
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable Integer id) {
-		Optional<Establishment> establishment = repository.findById(id);
+		Optional<Establishment> establishment = establishmentRepository.findById(id);
 
 		if (establishment.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi encontrado este estabelecimento");
 		}
-		repository.delete(establishment.get());
+		establishmentRepository.delete(establishment.get());
 
 		return ResponseEntity.ok(new EstablishmentDto(establishment.get()));
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> detail(@PathVariable Integer id) {
-		Optional<Establishment> establishment = repository.findById(id);
+		Optional<Establishment> establishment = establishmentRepository.findById(id);
 
 		if (establishment.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi encontrado este estabelecimento");
@@ -74,7 +84,7 @@ public class EstablishmentController {
 
 	@GetMapping
 	public ResponseEntity<List<Establishment>> listar() {
-		List<Establishment> establishment = repository.findAll();
+		List<Establishment> establishment = establishmentRepository.findAll();
 		return ResponseEntity.ok(establishment);
 	}
 

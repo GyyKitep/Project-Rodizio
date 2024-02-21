@@ -6,7 +6,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.com.rodizio.module.Categories;
+import br.com.rodizio.module.Images;
 
 public class EstablishmentForm {
 
@@ -36,7 +36,8 @@ public class EstablishmentForm {
 	@JsonFormat(pattern = "HH:mm:ss")
 	private Time opening_h_sun;
 
-	private Set<Categories> categories;
+	private Set<EstablishmentCategoriesForm> categories;
+	private Set<EstablishmentImageForm> images;
 
 	public String getName() {
 		return name;
@@ -100,8 +101,12 @@ public class EstablishmentForm {
 		return opening_h_sun;
 	}
 
-	public Set<Categories> getCategories() {
+	public Set<EstablishmentCategoriesForm> getCategories() {
 		return categories;
+	}
+
+	public Set<EstablishmentImageForm> getImages() {
+		return images;
 	}
 
 }
