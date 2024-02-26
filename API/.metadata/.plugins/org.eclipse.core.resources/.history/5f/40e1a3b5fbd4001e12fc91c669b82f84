@@ -1,0 +1,20 @@
+package br.com.rodizio.controller.form;
+
+import java.util.Base64;
+
+public class EstablishmentImageForm {
+
+	private Base64 imageData;
+	
+	public byte[] converte64ToImage() {
+		
+        byte[] imagem = Base64.getDecoder().decode(imagemBase64);
+        Imagem imagem = new Imagem();
+        imagem.setDadosImagem(dadosImagem);
+        imagemRepository.save(imagem);
+        return ResponseEntity.ok("Imagem salva com sucesso!");		
+		
+		
+		return imageData;
+	}
+}

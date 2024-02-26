@@ -2,6 +2,7 @@ package br.com.rodizio.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,10 @@ import br.com.rodizio.controller.form.EstablishmentCompletForm;
 import br.com.rodizio.controller.form.EstablishmentForm;
 import br.com.rodizio.dto.EstablishmentDto;
 import br.com.rodizio.module.Establishment;
+import br.com.rodizio.module.Images;
 import br.com.rodizio.repository.CategoriesRepository;
 import br.com.rodizio.repository.EstablishmentRepository;
+import br.com.rodizio.repository.ImagesRepository;
 
 @RestController
 @RequestMapping("establishment")
@@ -32,13 +35,26 @@ public class EstablishmentController {
 	@Autowired
 	private CategoriesRepository categoriesRepository;	
 
+	@Autowired
+	private ImagesRepository imagesRepository;	
+	
 	@PostMapping
 	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {		
-		EstablishmentCompletForm complete = new EstablishmentCompletForm(form, categoriesRepository);
-		
+		EstablishmentCompletForm complete = new EstablishmentCompletForm(form, categoriesRepository);	
 		
 		Establishment establishment = new Establishment(complete);
 		establishmentRepository.save(establishment);
+		
+		if (form.getImages() != null && form.getImages().size() > 0) {
+			List<Images> images = form.getImages().stream()
+	                  .map(item -> new Images(establishment,item))
+	                  .collect(Collectors.toList());
+			imagesRepository.saveAll(images);
+			
+		}		
+		
+		
+		
 		return ResponseEntity.ok(new EstablishmentDto(establishment));
 	}
 	

@@ -10,7 +10,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.rodizio.module.Categories;
 import br.com.rodizio.module.Establishment;
+import br.com.rodizio.module.Images;
 import br.com.rodizio.repository.CategoriesRepository;
+import jakarta.annotation.Nullable;
 
 public class EstablishmentCompletForm {
 
@@ -59,6 +61,7 @@ public class EstablishmentCompletForm {
 
 		this.categories = form.getCategories().stream().map(categorie -> categoriesRepository.findById(categorie.getId()))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
+
 	}
 
 	public EstablishmentCompletForm(Establishment establishment) {

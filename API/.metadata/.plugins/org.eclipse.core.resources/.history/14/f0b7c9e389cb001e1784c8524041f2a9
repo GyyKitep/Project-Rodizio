@@ -1,8 +1,0 @@
-package br.com.rodizio.controller.form;
-
-import java.sql.Timestamp;
-
-public class CategoriesForm {
-	
-	private String name;
-}

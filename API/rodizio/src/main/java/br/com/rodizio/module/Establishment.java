@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -59,7 +60,6 @@ public class Establishment {
 	@JoinTable(name = "establishment_categories", joinColumns = {
 			@JoinColumn(name = "establishment_id") }, inverseJoinColumns = { @JoinColumn(name = "category_id") })
 	private Set<Categories> categories;
-
 	
 	public Establishment() {
 	}

@@ -1,0 +1,18 @@
+package br.com.rodizio.controller.form;
+
+import java.sql.Timestamp;
+
+import br.com.rodizio.module.Establishment;
+
+public class ImageForm {
+	private Establishment establishment;
+    
+    private byte[] imageData;
+	private Timestamp created_at;
+	
+    public ImageForm(EstablishmentCompletForm complete) {
+    	this.establishment
+	}	
+	
+	
+}

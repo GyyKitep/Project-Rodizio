@@ -1,7 +1,0 @@
-package br.com.rodizio.dto;
-
-import java.sql.Timestamp;
-
-public record CategoriesDto(Integer id,	String name, Timestamp updated_price,Timestamp created_at) {
-
-}

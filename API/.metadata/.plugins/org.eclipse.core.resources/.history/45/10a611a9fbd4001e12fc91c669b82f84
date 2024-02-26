@@ -1,0 +1,12 @@
+package br.com.rodizio.controller.form;
+
+import java.util.Base64;
+
+public class EstablishmentImageForm {
+
+	private Base64 imageData;
+	
+	public Base64 converte64ToImage() {
+		return imageData;
+	}
+}
