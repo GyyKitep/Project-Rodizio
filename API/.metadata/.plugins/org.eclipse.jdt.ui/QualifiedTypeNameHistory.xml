@@ -24,7 +24,6 @@
     <fullyQualifiedTypeName name="br.com.rodizio.controller.CategoriesController"/>
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
-    <fullyQualifiedTypeName name="br.com.rodizio.dto.EstablishmentDto"/>
     <fullyQualifiedTypeName name="br.com.rodizio.dto.CategoriesDto"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="jakarta.annotation.Nullable"/>
@@ -48,8 +47,12 @@
     <fullyQualifiedTypeName name="br.com.rodizio.controller.form.ImageForm"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="br.com.rodizio.repository.ImagesRepository"/>
-    <fullyQualifiedTypeName name="br.com.rodizio.module.Images"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="br.com.rodizio.module.Establishment"/>
+    <fullyQualifiedTypeName name="br.com.rodizio.module.Images"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="br.com.rodizio.dto.ImageDto"/>
+    <fullyQualifiedTypeName name="br.com.rodizio.dto.EstablishmentDto"/>
 </qualifiedTypeNameHistroy>

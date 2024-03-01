@@ -22,7 +22,6 @@ public class Images {
 	@ManyToOne
 	private Establishment establishment;
 
-	@Lob
 	@Column(name = "image_data", columnDefinition = "bytea")
 	private byte[] image_Data;
 	
@@ -49,6 +48,10 @@ public class Images {
 
 	public void setImageData(byte[] imageData) {
 		this.image_Data = imageData;
+	}
+	
+	public byte[] getImage_Data() {
+		return image_Data;
 	}
 
 	public Timestamp getCreated_at() {

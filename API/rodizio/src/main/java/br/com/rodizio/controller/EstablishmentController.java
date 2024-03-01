@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.rodizio.controller.form.EstablishmentCompletForm;
 import br.com.rodizio.controller.form.EstablishmentForm;
 import br.com.rodizio.dto.EstablishmentDto;
+import br.com.rodizio.dto.ImageDto;
 import br.com.rodizio.module.Establishment;
 import br.com.rodizio.module.Images;
 import br.com.rodizio.repository.CategoriesRepository;
@@ -31,50 +32,59 @@ public class EstablishmentController {
 
 	@Autowired
 	private EstablishmentRepository establishmentRepository;
-	
-	@Autowired
-	private CategoriesRepository categoriesRepository;	
 
 	@Autowired
-	private ImagesRepository imagesRepository;	
-	
+	private CategoriesRepository categoriesRepository;
+
+	@Autowired
+	private ImagesRepository imagesRepository;
+
 	@PostMapping
-	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {		
-		EstablishmentCompletForm complete = new EstablishmentCompletForm(form, categoriesRepository);	
-		
+	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {
+		EstablishmentCompletForm complete = new EstablishmentCompletForm(form, categoriesRepository);
+
 		Establishment establishment = new Establishment(complete);
 		establishmentRepository.save(establishment);
-		
+
 		if (form.getImages() != null && form.getImages().size() > 0) {
-			List<Images> images = form.getImages().stream()
-	                  .map(item -> new Images(establishment,item))
-	                  .collect(Collectors.toList());
+			List<Images> images = form.getImages().stream().map(item -> new Images(establishment, item))
+					.collect(Collectors.toList());
 			imagesRepository.saveAll(images);
-			
-		}		
-		
-		
-		
-		return ResponseEntity.ok(new EstablishmentDto(establishment));
+
+		}
+
+		List<ImageDto> consulta = imagesRepository.findByIdEstablishment(establishment.getId());
+
+		return ResponseEntity.ok(new EstablishmentDto(establishment, consulta));
 	}
-	
+
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable Integer id, @RequestBody EstablishmentForm form) {
 		Optional<Establishment> establishment = establishmentRepository.findById(id);
-		
+
 		if (establishment.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi encontrado este estabelecimento");
 		}
-		
+
 		EstablishmentCompletForm complete = new EstablishmentCompletForm(establishment.get());
-		
+
 		complete.changeCategories(form, categoriesRepository);
-		
+
 		establishment.get().updateEstablishment(complete);
 		establishmentRepository.save(establishment.get());
 
-		return ResponseEntity.ok(new EstablishmentDto(establishment.get()));
+		if (form.getImages() != null && form.getImages().size() > 0) {
+			List<Images> images = form.getImages().stream().map(item -> new Images(establishment.get(), item))
+					.collect(Collectors.toList());
+			imagesRepository.saveAll(images);
+
+		}
+
+		List<ImageDto> consulta = imagesRepository.findByIdEstablishment(establishment.get().getId());
+
+		return ResponseEntity.ok(new EstablishmentDto(establishment.get(), consulta));
 	}
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable Integer id) {
 		Optional<Establishment> establishment = establishmentRepository.findById(id);
@@ -84,7 +94,7 @@ public class EstablishmentController {
 		}
 		establishmentRepository.delete(establishment.get());
 
-		return ResponseEntity.ok(new EstablishmentDto(establishment.get()));
+		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping("/{id}")
@@ -94,14 +104,20 @@ public class EstablishmentController {
 		if (establishment.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi encontrado este estabelecimento");
 		}
+		List<ImageDto> imagens = imagesRepository.findByIdEstablishment(establishment.get().getId());
 
-		return ResponseEntity.ok(new EstablishmentDto(establishment.get()));
+		return ResponseEntity.ok(new EstablishmentDto(establishment.get(), imagens));
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Establishment>> listar() {
+	public ResponseEntity<List<EstablishmentDto>> listar() {
 		List<Establishment> establishment = establishmentRepository.findAll();
-		return ResponseEntity.ok(establishment);
+
+		List<EstablishmentDto> establishmentDtos = establishment.stream().map(
+				item -> new EstablishmentDto(item, imagesRepository.findByIdEstablishment(item.getId())))
+				.collect(Collectors.toList());
+
+		return ResponseEntity.ok(establishmentDtos);
 	}
 
 }
