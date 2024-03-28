@@ -1,0 +1,16 @@
+package br.com.rodizio.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import br.com.rodizio.dto.ImageDto;
+import br.com.rodizio.module.Review;
+
+public interface ReviewsRepository  extends JpaRepository<Review, Integer>  {
+
+	@Query("SELECT i FROM Reviews i WHERE i.establishment.id = :id")
+    List<ImageDto> findByIdEstablishment(Integer id);
+	
+}

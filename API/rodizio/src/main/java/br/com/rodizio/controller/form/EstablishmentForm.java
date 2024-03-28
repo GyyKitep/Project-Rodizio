@@ -39,6 +39,7 @@ public class EstablishmentForm {
 
 	private Set<EstablishmentCategoriesForm> categories;
 	private List<EstablishmentImageForm> images;
+	private List<EstablishmentReviewForm> reviews;
 
 	public String getName() {
 		return name;
@@ -108,6 +109,10 @@ public class EstablishmentForm {
 
 	public List<EstablishmentImageForm> getImages() {
 		return images;
+	}
+	
+	public List<EstablishmentReviewForm> getReviews() {
+		return reviews;
 	}
 
 }

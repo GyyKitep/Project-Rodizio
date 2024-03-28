@@ -1,0 +1,15 @@
+package br.com.rodizio.dto;
+
+import java.sql.Timestamp;
+
+import br.com.rodizio.module.Establishment;
+import br.com.rodizio.module.Images;
+import br.com.rodizio.module.embeddable.ImagesId;
+
+public record ImageDto(Integer id, byte[] image_Data, Timestamp created_at) {
+
+	public ImageDto(Images image) {
+		this(image.getId(), image.getImage_Data(), image.getCreated_at());
+	}
+
+}

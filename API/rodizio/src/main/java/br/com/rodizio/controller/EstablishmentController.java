@@ -20,11 +20,14 @@ import br.com.rodizio.controller.form.EstablishmentCompletForm;
 import br.com.rodizio.controller.form.EstablishmentForm;
 import br.com.rodizio.dto.EstablishmentDto;
 import br.com.rodizio.dto.ImageDto;
+import br.com.rodizio.dto.ReviewDto;
 import br.com.rodizio.module.Establishment;
 import br.com.rodizio.module.Images;
+import br.com.rodizio.module.Reviews;
 import br.com.rodizio.repository.CategoriesRepository;
 import br.com.rodizio.repository.EstablishmentRepository;
 import br.com.rodizio.repository.ImagesRepository;
+import br.com.rodizio.repository.ReviewsRepository;
 
 @RestController
 @RequestMapping("establishment")
@@ -38,6 +41,9 @@ public class EstablishmentController {
 
 	@Autowired
 	private ImagesRepository imagesRepository;
+	
+	@Autowired
+	private ReviewsRepository reviewsRepository;
 
 	@PostMapping
 	public ResponseEntity<EstablishmentDto> register(@RequestBody EstablishmentForm form) {
@@ -52,10 +58,17 @@ public class EstablishmentController {
 			imagesRepository.saveAll(images);
 
 		}
+		
+		if (form.getReviews() != null && form.getImages().size() > 0) {
+			List<Reviews> reviews = form.getReviews().stream().map(item -> new Reviews(establishment, item))
+					.collect(Collectors.toList());
+			reviewsRepository.saveAll(reviews);			
+		}
 
-		List<ImageDto> consulta = imagesRepository.findByIdEstablishment(establishment.getId());
+		List<ImageDto> consultaImagens = imagesRepository.findByIdEstablishment(establishment.getId());
+		List<ReviewDto> consultaReviews = reviewsRepository.findByIdEstablishment(establishment.getId());
 
-		return ResponseEntity.ok(new EstablishmentDto(establishment, consulta));
+		return ResponseEntity.ok(new EstablishmentDto(establishment, consultaImagens, consultaReviews));
 	}
 
 	@PutMapping("/{id}")
@@ -80,9 +93,10 @@ public class EstablishmentController {
 
 		}
 
-		List<ImageDto> consulta = imagesRepository.findByIdEstablishment(establishment.get().getId());
+		List<ImageDto> consultaImagens = imagesRepository.findByIdEstablishment(establishment.get().getId());
+		List<ReviewDto> consultaReviews = reviewsRepository.findByIdEstablishment(establishment.get().getId());
 
-		return ResponseEntity.ok(new EstablishmentDto(establishment.get(), consulta));
+		return ResponseEntity.ok(new EstablishmentDto(establishment.get(), consultaImagens, consultaReviews));
 	}
 
 	@DeleteMapping("/{id}")
@@ -104,9 +118,11 @@ public class EstablishmentController {
 		if (establishment.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não foi encontrado este estabelecimento");
 		}
-		List<ImageDto> imagens = imagesRepository.findByIdEstablishment(establishment.get().getId());
+		
+		List<ImageDto> consultaImagens = imagesRepository.findByIdEstablishment(establishment.get().getId());
+		List<ReviewDto> consultaReviews = reviewsRepository.findByIdEstablishment(establishment.get().getId());
 
-		return ResponseEntity.ok(new EstablishmentDto(establishment.get(), imagens));
+		return ResponseEntity.ok(new EstablishmentDto(establishment.get(), consultaImagens, consultaReviews));
 	}
 
 	@GetMapping
@@ -114,7 +130,7 @@ public class EstablishmentController {
 		List<Establishment> establishment = establishmentRepository.findAll();
 
 		List<EstablishmentDto> establishmentDtos = establishment.stream().map(
-				item -> new EstablishmentDto(item, imagesRepository.findByIdEstablishment(item.getId())))
+				item -> new EstablishmentDto(item, imagesRepository.findByIdEstablishment(item.getId()),reviewsRepository.findByIdEstablishment(item.getId())))
 				.collect(Collectors.toList());
 
 		return ResponseEntity.ok(establishmentDtos);

@@ -1,0 +1,10 @@
+package br.com.rodizio.module.embeddable;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class ImagesId implements Serializable{
+
+}

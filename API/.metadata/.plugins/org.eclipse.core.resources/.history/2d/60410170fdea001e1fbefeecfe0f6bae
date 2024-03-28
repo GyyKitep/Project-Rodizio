@@ -1,0 +1,64 @@
+package br.com.rodizio.controller.form;
+
+import java.sql.Timestamp;
+
+import jakarta.annotation.Nullable;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
+public class EstablishmentReviewForm {
+
+	@Min(value = 1, message = "O valor mínimo deve ser pelo menos 1")
+    @Max(value = 10, message = "O valor máximo deve ser no máximo 5")
+	private Integer service;
+	
+	@Min(value = 1, message = "O valor mínimo deve ser pelo menos 1")
+    @Max(value = 10, message = "O valor máximo deve ser no máximo 5")	
+	private Integer dishes;
+	
+	private String best_dish;
+	private String worst_dish;
+	
+	private Timestamp created_at;
+	
+	@Nullable
+	private Timestamp updated_at;
+	
+	public Integer getService() {
+		return service;
+	}
+	public void setService(Integer service) {
+		this.service = service;
+	}
+	public Integer getDishes() {
+		return dishes;
+	}
+	public void setDishes(Integer dishes) {
+		this.dishes = dishes;
+	}
+	public String getBest_dish() {
+		return best_dish;
+	}
+	public void setBest_dish(String best_dish) {
+		this.best_dish = best_dish;
+	}
+	public String getWorst_dish() {
+		return worst_dish;
+	}
+	public void setWorst_dish(String worst_dish) {
+		this.worst_dish = worst_dish;
+	}
+	public Timestamp getCreated_at() {
+		return created_at;
+	}
+	public void setCreated_at(Timestamp created_at) {
+		this.created_at = created_at;
+	}
+	public Timestamp getUpdated_at() {
+		return updated_at;
+	}
+	public void setUpdated_at(Timestamp updated_at) {
+		this.updated_at = updated_at;
+	}	
+	
+}

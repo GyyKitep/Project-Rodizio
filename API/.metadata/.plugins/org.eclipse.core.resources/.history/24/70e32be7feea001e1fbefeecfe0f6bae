@@ -1,0 +1,102 @@
+package br.com.rodizio.module;
+
+import java.sql.Timestamp;
+
+import br.com.rodizio.controller.form.EstablishmentImageForm;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
+@Entity
+@Table(name="reviews")
+public class Review {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@ManyToOne
+	private Establishment establishment;
+	
+	@Min(value = 1, message = "O valor mínimo deve ser pelo menos 1")
+    @Max(value = 10, message = "O valor máximo deve ser no máximo 5")
+	private Integer service;
+	
+	@Min(value = 1, message = "O valor mínimo deve ser pelo menos 1")
+    @Max(value = 10, message = "O valor máximo deve ser no máximo 5")	
+	private Integer dishes;
+	
+	private String best_dish;
+	private String worst_dish;
+	
+	private Timestamp created_at;
+	@Nullable
+	private Timestamp updated_at;
+	
+	public Review() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Review(Establishment establishment, EstablishmentImageForm image) {
+		this.establishment = establishment;
+		this.created_at = new Timestamp(System.currentTimeMillis());
+		this.image_Data = image.convert64ToImage();
+
+	}	
+	
+	
+	public Establishment getEstablishment() {
+		return establishment;
+	}
+	public void setEstablishment(Establishment establishment) {
+		this.establishment = establishment;
+	}
+	public Integer getService() {
+		return service;
+	}
+	public void setService(Integer service) {
+		this.service = service;
+	}
+	public Integer getDishes() {
+		return dishes;
+	}
+	public void setDishes(Integer dishes) {
+		this.dishes = dishes;
+	}
+	public String getBest_dish() {
+		return best_dish;
+	}
+	public void setBest_dish(String best_dish) {
+		this.best_dish = best_dish;
+	}
+	public String getWorst_dish() {
+		return worst_dish;
+	}
+	public void setWorst_dish(String worst_dish) {
+		this.worst_dish = worst_dish;
+	}
+	public Timestamp getCreated_at() {
+		return created_at;
+	}
+	public void setCreated_at(Timestamp created_at) {
+		this.created_at = created_at;
+	}
+	public Timestamp getUpdated_at() {
+		return updated_at;
+	}
+	public void setUpdated_at(Timestamp updated_at) {
+		this.updated_at = updated_at;
+	}
+	public Integer getId() {
+		return id;
+	}
+	
+	
+
+}

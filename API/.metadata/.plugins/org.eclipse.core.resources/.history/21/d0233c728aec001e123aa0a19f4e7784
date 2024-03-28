@@ -1,0 +1,40 @@
+package br.com.rodizio.module.embeddable;
+
+import java.io.Serializable;
+
+import br.com.rodizio.module.Establishment;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
+
+@Embeddable
+public class ImagesId implements Serializable{
+
+	private Integer id;
+
+	private Establishment establishment;
+	
+	public ImagesId() {
+		
+	}
+	
+	public ImagesId(Establishment establishment) {
+		this.establishment = establishment;
+	}
+
+	public Establishment getEstablishment() {
+		return establishment;
+	}
+
+	public void setEstablishment(Establishment establishment) {
+		this.establishment = establishment;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+	
+	
+
+}

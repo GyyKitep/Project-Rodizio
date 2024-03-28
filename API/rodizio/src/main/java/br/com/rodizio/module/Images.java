@@ -8,14 +8,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "images")
 public class Images {
-	@Id
+		
+    @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
@@ -37,13 +37,18 @@ public class Images {
 		this.image_Data = image.convert64ToImage();
 
 	}
-
-	public Integer getId() {
-		return id;
-	}
+	
 
 	public Establishment getEstablishment() {
 		return establishment;
+	}
+
+	public void setEstablishment(Establishment establishment) {
+		this.establishment = establishment;
+	}
+
+	public Integer getId() {
+		return id;
 	}
 
 	public void setImageData(byte[] imageData) {

@@ -1,0 +1,5 @@
+package br.com.rodizio.dto;
+
+public record ReviewDto {
+
+}
