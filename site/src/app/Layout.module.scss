@@ -1,0 +1,20 @@
+.custom_body{
+    background-color: #975959;
+    margin: 0;
+    padding: 0;      
+    width: 100vw;
+    height: 100vh;
+}
+
+.app_div{
+    margin: auto;
+    max-width: 100rem;
+    width: 100%;
+}
+
+.imagem_banner {
+    width: 50%; /* Define a largura da imagem como 50% da largura da página */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Garante que a imagem seja exibida como um bloco para ocupar o espaço corretamente */
+    margin: 30px auto 30px auto; /* Centraliza horizontalmente a imagem */
+  }
