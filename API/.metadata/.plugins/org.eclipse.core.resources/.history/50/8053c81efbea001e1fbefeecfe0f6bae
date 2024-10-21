@@ -1,9 +1,0 @@
-package br.com.rodizio.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.rodizio.module.Review;
-
-public interface ReviewsRepository  extends JpaRepository<Review, Integer>  {
-
-}

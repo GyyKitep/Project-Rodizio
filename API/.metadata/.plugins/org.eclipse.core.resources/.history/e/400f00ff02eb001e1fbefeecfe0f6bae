@@ -1,6 +1,0 @@
-package br.com.rodizio.module.embeddable;
-
-@Embeddable
-public class ImagesId implements Serializable{
-
-}
